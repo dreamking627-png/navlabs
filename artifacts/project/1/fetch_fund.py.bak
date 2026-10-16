@@ -1,0 +1,87 @@
+"""
+Fetch holdings for any Rupeevest fund and write a YAML file.
+
+Usage:
+    python fetch_fund.py 45529
+    python fetch_fund.py 45529 "SBI Nifty Next 50 Index Fund-Reg(G)"
+    python fetch_fund.py 45529 "SBI Nifty Next 50 Index Fund-Reg(G)" sbi_nifty_next_50.yaml
+"""
+
+import sys
+import json
+import requests
+from pathlib import Path
+
+if len(sys.argv) < 2:
+    print("Usage: python fetch_fund.py <schemecode> [fund_name] [output.yaml]")
+    sys.exit(1)
+
+schemecode = sys.argv[1]
+fund_name = sys.argv[2] if len(sys.argv) > 2 else f"Fund {schemecode}"
+output_file = sys.argv[3] if len(sys.argv) > 3 else "holdings.yaml"
+
+URL = f"https://www.rupeevest.com/home/get_holding_asset?schemecode={schemecode}"
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+    "X-Requested-With": "XMLHttpRequest",
+    "Referer": f"https://www.rupeevest.com/Mutual-Funds-India/{schemecode}",
+}
+
+print(f"Fetching schemecode={schemecode} ...")
+r = requests.get(URL, headers=headers, timeout=30)
+print(f"HTTP status: {r.status_code}")
+
+if r.status_code != 200:
+    print("Server refused. Response body (first 300 chars):")
+    print(r.text[:300])
+    sys.exit(1)
+
+data = r.json()
+
+# ── Build symbol lookup from stock_data_search ──────────────
+# stock_search format: "Company Name | BSE Code | NSE_SYMBOL"
+symbol_lookup = {}
+for item in data.get("stock_data_search", []):
+    name = item.get("compname", "").strip()
+    ss = item.get("stock_search", "")
+    parts = [p.strip() for p in ss.split("|")]
+    if len(parts) >= 3 and parts[2]:
+        symbol_lookup[name] = parts[2]
+
+# ── Extract equity holdings only ────────────────────────────
+holdings = []
+total = 0.0
+for h in data.get("hold_eq", []):
+    name = h.get("compname", "").strip()
+    weight = h.get("holdpercentage", 0)
+    if not name or weight is None:
+        continue
+    try:
+        w = float(weight)
+    except (TypeError, ValueError):
+        continue
+    symbol = symbol_lookup.get(name, "")
+    holdings.append({
+        "name": name,
+        "symbol": symbol,
+        "weight": w,
+    })
+    total += w
+
+# ── Write YAML ──────────────────────────────────────────────
+lines = []
+lines.append(f"fund_name: {fund_name}")
+lines.append(f"schemecode: {schemecode}")
+lines.append("holdings:")
+for h in holdings:
+    lines.append(f"  - stock_name: {h['name']}")
+    lines.append(f"    symbol: {h['symbol']}")
+    lines.append(f"    weight: {h['weight']}")
+
+Path(output_file).write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+print(f"Wrote {len(holdings)} holdings to {output_file}")
+print(f"Sum of weights: {total:.2f}%")

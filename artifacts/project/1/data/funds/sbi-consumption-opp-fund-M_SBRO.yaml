@@ -1,0 +1,67 @@
+id: sbi-consumption-opp-fund-M_SBRO
+name: "SBI Consumption Opp Fund"
+amfi_code: null
+category: [Equity, Imported]
+fund_type: Active
+plan: Direct
+option: Growth
+tags: []
+underlying_etf: null
+attributes:
+  rupeevest_schemecode: "19166"
+  source: rupeevest
+  raw_equity_weight_sum: 95.91999999999996
+previous_nav: null
+tax_rule: equity_oriented
+costs: []
+holdings:
+  as_of: "2026-09-30"
+  items:
+    - {name: "Eternal Ltd.", symbol: ETERNAL, weight: 5.99}
+    - {name: "Asian Paints Ltd.", symbol: ASIANPAINT, weight: 4.98}
+    - {name: "Jubilant FoodWorks Ltd.", symbol: JUBLFOOD, weight: 4.76}
+    - {name: "Mahindra & Mahindra Ltd.", symbol: M&M, weight: 4.08}
+    - {name: "Varun Beverages Ltd.", symbol: VBL, weight: 3.98}
+    - {name: "Berger Paints India Ltd.", symbol: BERGEPAINT, weight: 3.75}
+    - {name: "Page Industries Ltd.", symbol: PAGEIND, weight: 3.71}
+    - {name: "Titan Company Ltd.", symbol: TITAN, weight: 3.62}
+    - {name: "United Breweries Ltd.", symbol: UBL, weight: 3.57}
+    - {name: "Britannia Industries Ltd.", symbol: BRITANNIA, weight: 3.5}
+    - {name: "Colgate-Palmolive (India) Ltd.", symbol: COLPAL, weight: 3.3}
+    - {name: "Bharti Airtel Ltd.", symbol: BHARTIARTL, weight: 3.29}
+    - {name: "Hindustan Unilever Ltd.", symbol: HINDUNILVR, weight: 3.15}
+    - {name: "Eicher Motors Ltd.", symbol: EICHERMOT, weight: 3.11}
+    - {name: "Maruti Suzuki India Ltd.", symbol: MARUTI, weight: 3.07}
+    - {name: "TVS Motor Company Ltd.", symbol: TVSMOTOR, weight: 2.84}
+    - {name: "DOMS Industries Ltd.", symbol: DOMS, weight: 2.65}
+    - {name: "EIH Ltd.", symbol: EIHOTEL, weight: 2.51}
+    - {name: "Ganesha Ecosphere Ltd.", symbol: GANECOS, weight: 2.17}
+    - {name: "Voltas Ltd.", symbol: VOLTAS, weight: 2.12}
+    - {name: "Swiggy Ltd.", symbol: SWIGGY, weight: 1.97}
+    - {name: "Avenue Supermarts Ltd.", symbol: DMART, weight: 1.95}
+    - {name: "Hawkins Cookers Ltd.", symbol: HAWKINCOOK, weight: 1.94}
+    - {name: "Trent Ltd.", symbol: TRENT, weight: 1.55}
+    - {name: "Flair Writing Industries Ltd.", symbol: FLAIR, weight: 1.41}
+    - {name: "Urban Company Ltd.", symbol: URBANCO, weight: 1.37}
+    - {name: "Whirlpool Of India Ltd.", symbol: WHIRLPOOL, weight: 1.36}
+    - {name: "Tata Motors Ltd.", symbol: TMCV, weight: 1.33}
+    - {name: "Havells India Ltd.", symbol: HAVELLS, weight: 1.3}
+    - {name: "Westlife Foodworld Ltd", symbol: WESTLIFE, weight: 1.3}
+    - {name: "SS Retail Ltd.", symbol: SSRETAIL, weight: 1.29}
+    - {name: "Brainbees Solutions Ltd.", symbol: FIRSTCRY, weight: 1.21}
+    - {name: "Kusumgar Ltd.", symbol: KUSUMGAR, weight: 1.19}
+    - {name: "Nestle India Ltd.", symbol: NESTLEIND, weight: 1.12}
+    - {name: "Bosch Home Comfort India Ltd.", symbol: BOSCH-HCIL, weight: 1.12}
+    - {name: "Jyothy Labs Ltd.", symbol: JYOTHYLAB, weight: 1.11}
+    - {name: "Kansai Nerolac Paints Ltd.", symbol: KANSAINER, weight: 1.04}
+    - {name: "Lemon Tree Hotels Ltd.", symbol: LEMONTREE, weight: 1.03}
+    - {name: "Vishal Mega Mart Ltd.", symbol: VMM, weight: 1}
+    - {name: "V-Guard Industries Ltd.", symbol: VGUARD, weight: 0.95}
+    - {name: "Tenneco Clean Air India Ltd.", symbol: TENNIND, weight: 0.84}
+    - {name: "Sheela Foam Ltd.", symbol: SFL, weight: 0.75}
+    - {name: "Sula Vineyards Ltd.", symbol: SULA, weight: 0.43}
+    - {name: "Campus Activewear Ltd.", symbol: CAMPUS, weight: 0.38}
+    - {name: "Hero MotoCorp Ltd.", symbol: HEROMOTOCO, weight: 0.35}
+    - {name: "Relaxo Footwears Ltd.", symbol: RELAXO, weight: 0.33}
+    - {name: "Brigade Hotel Ventures Ltd.", symbol: BRIGHOTEL, weight: 0.14}
+    - {name: "TTK Prestige Ltd.", symbol: TTKPRESTIG, weight: 0.09}

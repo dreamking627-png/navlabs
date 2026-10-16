@@ -1,0 +1,107 @@
+id: jioblackrock-flexi-cap-fund-direct-growth
+name: JioBlackRock Flexi Cap Fund Direct Growth
+amfi_code: null              # FILL IN: needed to auto-fetch official NAV from mfapi.in
+category: [Equity, Flexi Cap]
+fund_type: Active
+plan: Direct
+option: Growth
+tags: [Flexi Cap, Direct, Growth]
+underlying_etf: null   # FoF/ETF funds: FILL IN NSE symbol to enable ETF cross-check
+attributes: {risk: Very High, benchmark: NIFTY 500 Total Return Index, fund_house: JioBlackRock Mutual Fund, aum: "₹3,175.44 Cr", min_sip: "₹500"}               # free-form extras (benchmark, manager, risk...) - no schema change needed
+previous_nav: {date: "2026-10-09", nav: 9.5100}           # {date: "YYYY-MM-DD", nav: 0.0000} or set later via POST /api/funds/{id}/nav
+tax_rule: "equity_oriented"
+costs:
+  - {key: expense_ratio_pct, value: 1.11, effective_from: "2026-10-12"}
+  - {key: stamp_duty_pct, value: 0.005, note: "On investment (from 1 Jul 2020)", effective_from: "2026-10-12"}
+holdings:
+  as_of: "2026-10-09"        # REPLACE with the real disclosure date
+  # non-equity rows left out of items: Repo 2.16%, Net Payables -1.2%, See Less 99.04%, Cash 0.96%, Market Cap Split 61.2%, Mid Cap 19.11%, Small Cap 19.69%, ₹3,144.95 Cr 30.4%, Advanced ratios 22%, Top 20 49%, P/E Ratio %
+  # SKIPPED (no weight): Larsen & Toubro Ltd, Aurobindo Pharma Ltd, Power Finance Corporation Ltd, Bajaj Finance Ltd, Castrol India Ltd, Welspun Corp Ltd, Syrma SGS Technology Ltd, Elgi Equipments Ltd, JM Financial Ltd, Adani Wilmar Ltd, Ather Energy Ltd., Apar Industries Ltd, Bajaj Finserv Ltd, Samvardhana Motherson International Ltd, Honasa Consumer Ltd., Dr. Lal Pathlabs Ltd, DEWAN HOUSING FINANCE CORP. LTD. EQ, Bajaj Holdings & Investment Ltd, Star Health & Allied Insurance Co. Ltd, Berger Paints India Ltd, Gujarat Pipavav Port Ltd, REC Ltd, Kajaria Ceramics Ltd, Adani Ports and Special Economic Zone Ltd, Bank of India, Mahindra CIE Automotive Ltd, Sterlite Technologies Ltd, Karur Vysya Bank Ltd, Multi Commodity Exchange Of India Ltd, RateGain Travel Technologies Ltd, MTAR Technologies Ltd, Escorts Kubota Ltd, JSW Cement Ltd., Jamna Auto Industries Ltd, ICICI Prudential Asset Management Company Ltd., Shadowfax Technologies Ltd., Deepak Nitrite Ltd, The Karnataka Bank Ltd, BSE Ltd, PTC India Ltd, Ami Organics Ltd, Aegis Logistics Ltd, Coforge Ltd, Marksans Pharma Ltd, Advanced Enzyme Technologies Ltd, CCL Products (India) Ltd, TVS Supply Chain Solutions Ltd., Granules India Ltd, Niva Bupa Health Insurance Company Ltd., Nava Ltd
+  items:
+    - {name: HDFC Bank Ltd, symbol: HDFCBANK, weight: 5.90}
+    - {name: ICICI Bank Ltd, symbol: ICICIBANK, weight: 5.69}
+    - {name: Bharti Airtel Ltd, symbol: BHARTIARTL, weight: 4.31}
+    - {name: State Bank of India, symbol: SBIN, weight: 3.53}
+    - {name: Reliance Industries Ltd, symbol: RELIANCE, weight: 3.05}
+    - {name: Mahindra & Mahindra Ltd, symbol: M&M, weight: 2.88}
+    - {name: Tata Steel Ltd, symbol: TATASTEEL, weight: 2.28}
+    - {name: Oil & Natural Gas Corporation Ltd, symbol: ONGC, weight: 1.92}
+    - {name: Infosys Ltd, symbol: INFY, weight: 1.90}
+    - {name: Life Insurance Corporation of India, symbol: LICI, weight: 1.76}
+    - {name: Nestle India Ltd, symbol: NESTLEIND, weight: 1.65}
+    - {name: Lupin Ltd, symbol: LUPIN, weight: 1.60}
+    - {name: Steel Authority Of India Ltd, symbol: SAIL, weight: 1.57}
+    - {name: Indian Oil Corporation Ltd, symbol: IOC, weight: 1.56}
+    - {name: Radico Khaitan Ltd, symbol: RADICO, weight: 1.55}
+    - {name: Navin Fluorine International Ltd, symbol: NAVINFLUOR, weight: 1.51}
+    - {name: Apollo Tyres Ltd, symbol: APOLLOTYRE, weight: 1.47}
+    - {name: Nippon Life India Asset Management Ltd, symbol: null, weight: 1.46}
+    - {name: Tata Consultancy Services Ltd, symbol: TCS, weight: 1.45}
+    - {name: Polycab India Ltd, symbol: POLYCAB, weight: 1.44}
+    - {name: Ultratech Cement Ltd, symbol: ULTRACEMCO, weight: 1.33}
+    - {name: Welspun India Ltd, symbol: null, weight: 1.24}
+    - {name: Yes Bank Ltd, symbol: YESBANK, weight: 1.20}
+    - {name: Hero Motocorp Ltd, symbol: HEROMOTOCO, weight: 1.18}
+    - {name: Titan Company Ltd, symbol: TITAN, weight: 1.13}
+    - {name: Adani Transmission Ltd, symbol: null, weight: 1.12}
+    - {name: Coal India Ltd, symbol: COALINDIA, weight: 1.05}
+    - {name: Bharat Heavy Electricals Ltd, symbol: BHEL, weight: 1.03}
+    - {name: HCL Technologies Ltd, symbol: HCLTECH, weight: 1.02}
+    - {name: Punjab National Bank, symbol: PNB, weight: 0.98}
+    - {name: Ujjivan Small Finance Bank Ltd, symbol: null, weight: 0.90}
+    - {name: TVS Motor Company Ltd, symbol: TVSMOTOR, weight: 0.89}
+    - {name: Kalpataru Power Transmission Ltd, symbol: null, weight: 0.87}
+    - {name: Balkrishna Industries Ltd, symbol: null, weight: 0.85}
+    - {name: JSW Steel Ltd, symbol: JSWSTEEL, weight: 0.82}
+    - {name: Tata Motors Ltd, symbol: null, weight: 0.81}
+    - {name: Ipca Laboratories Ltd, symbol: null, weight: 0.76}
+    - {name: Dixon Technologies (India) Ltd, symbol: DIXON, weight: 0.75}
+    - {name: HDFC Asset Management Company Ltd, symbol: HDFCAMC, weight: 0.74}
+    - {name: Asian Paints Ltd, symbol: ASIANPAINT, weight: 0.69}
+    - {name: Lenskart Solutions Ltd., symbol: null, weight: 0.68}
+    - {name: Hitachi Energy India Ltd, symbol: null, weight: 0.67}
+    - {name: Oracle Financial Services Software Ltd, symbol: null, weight: 0.66}
+    - {name: Atul Ltd, symbol: null, weight: 0.65}
+    - {name: Glenmark Pharmaceuticals Ltd, symbol: null, weight: 0.62}
+    - {name: GE T&D India Ltd, symbol: null, weight: 0.57}
+    - {name: Redington Ltd, symbol: null, weight: 0.56}
+    - {name: Hindalco Industries Ltd, symbol: HINDALCO, weight: 0.55}
+    - {name: Axis Bank Ltd, symbol: AXISBANK, weight: 0.52}
+    - {name: Max Financial Services Ltd, symbol: null, weight: 0.51}
+    - {name: R R Kabel Ltd., symbol: null, weight: 0.50}
+    - {name: Craftsman Automation Ltd, symbol: null, weight: 0.49}
+    - {name: Kei Industries Ltd, symbol: null, weight: 0.46}
+    - {name: Apollo Hospitals Enterprise Ltd, symbol: APOLLOHOSP, weight: 0.44}
+    - {name: Siemens Energy India Ltd, symbol: null, weight: 0.38}
+    - {name: Minda Corporation Ltd, symbol: null, weight: 0.37}
+    - {name: Sun Pharmaceutical Industries Ltd, symbol: SUNPHARMA, weight: 0.35}
+    - {name: ITC Ltd, symbol: ITC, weight: 0.34}
+    - {name: Solar Industries India Ltd, symbol: SOLARINDS, weight: 0.33}
+    - {name: Billionbrains Garage Ventures Ltd., symbol: null, weight: 0.31}
+    - {name: GAIL (India) Ltd, symbol: GAIL, weight: 0.30}
+    - {name: V-Guard Industries Ltd, symbol: null, weight: 0.29}
+    - {name: Akums Drugs And Pharmaceuticals Ltd., symbol: null, weight: 0.28}
+    - {name: Marico Ltd, symbol: MARICO, weight: 0.27}
+    - {name: Five-Star Business Finance Ltd, symbol: null, weight: 0.26}
+    - {name: Kansai Nerolac Paints Ltd, symbol: null, weight: 0.25}
+    - {name: Shipping Corporation Of India Ltd, symbol: null, weight: 0.24}
+    - {name: Rubicon Research Ltd., symbol: null, weight: 0.23}
+    - {name: IDFC First Bank Ltd, symbol: IDFCFIRSTB, weight: 0.22}
+    - {name: CESC Ltd, symbol: null, weight: 0.21}
+    - {name: Electronics Mart India Ltd, symbol: null, weight: 0.20}
+    - {name: TD Power Systems Ltd, symbol: null, weight: 0.19}
+    - {name: CreditAccess Grameen Ltd, symbol: null, weight: 0.18}
+    - {name: The Federal Bank Ltd, symbol: FEDERALBNK, weight: 0.17}
+    - {name: NTPC Ltd, symbol: NTPC, weight: 0.14}
+    - {name: Shriram Transport Finance Company Ltd, symbol: null, weight: 0.13}
+    - {name: L&T Finance Holdings Ltd, symbol: null, weight: 0.12}
+    - {name: Indegene Ltd., symbol: null, weight: 0.11}
+    - {name: Bharat Petroleum Corporation Ltd, symbol: BPCL, weight: 0.10}
+    - {name: Indo Count Industries Ltd, symbol: null, weight: 0.09}
+    - {name: Kotak Mahindra Bank Ltd, symbol: KOTAKBANK, weight: 0.07}
+    - {name: Equitas Small Finance Bank Ltd, symbol: null, weight: 0.06}
+    - {name: Happy Forgings Ltd., symbol: null, weight: 0.05}
+    - {name: PVR Ltd, symbol: null, weight: 0.04}
+    - {name: Neuland Laboratories Ltd, symbol: null, weight: 0.03}
+    - {name: Alembic Pharmaceuticals Ltd, symbol: null, weight: 0.02}
+    - {name: Ahluwalia Contracts (India) Ltd, symbol: null, weight: 0.01}

@@ -1,0 +1,8 @@
+# Order matters: first = primary, rest = fallbacks (called only for symbols the earlier ones failed on).
+order: [yfinance, yahoo, nse]
+cache_ttl_seconds: 5
+timeout_seconds: 10
+max_age_seconds: 300        # a quote older than this is "stale" during market hours
+breaker: {failures: 3, cooldown_seconds: 300}
+max_abs_change_pct: 20      # physics check on a single stock
+sanity_max_abs_nav_change_pct: 10

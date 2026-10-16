@@ -1,0 +1,24 @@
+AMFI REFINE REPORT
+========================================
+Files: a.txt: encoding utf-8-sig, separator ';'
+Lines read:            10,803
+Scheme rows found:     8,296
+Unique schemes saved:  8,296
+Duplicate codes:       0  (older-date copies ignored: 0)
+Fund houses:           54
+Category lines seen:   96
+Newest NAV date:       2026-10-13
+Most common dates:     [('2026-10-13', 8296)]
+Stale schemes (NAV >10 days older than newest): 0
+
+Plans:   {'Direct': 3961, 'Regular': 3983, 'Other': 352}
+Options: {'IDCW': 4126, 'Growth': 3451, 'Unclaimed Redemption Less Than 3 Years': 3, 'Other': 307, 'Monthly Dcw Payout': 1, 'Bonus': 74, 'Quarterly Option': 1, 'Unclaimed Less Than 3 Years Redemption Plan': 1, 'Unclaimed Redemption More Than 3 Years': 1, 'Redemption Greater Than 3 Years': 1, 'Redemption Up To 3 Yrs': 1, 'Direct Weekly Reinvestment': 1, 'Idwc Option': 2, 'Unclaimed Less Than 3 Years Redemption': 1, 'Payout': 6, 'Unclaimed Redemption Investor Education': 1, 'Unclaimed Redemption': 1, 'Income Distribution Cum Capital Withdrawal': 86, 'Half Yearly - Income Distribution Cum Capital Withdrawal': 5, 'Monthly - Income Distribution Cum Capital Withdrawal': 14, 'Quarterly - Income Distribution Cum Capital Withdrawal': 6, 'Fortnightly - Income Distribution Cum Capital Withdrawal': 8, 'Weekly - Income Distribution Cum Capital Withdrawal': 8, 'Half Yearly -Income Distribution Cum Capital Withdrawal': 1, 'Direct': 1, 'Cumulative': 14, 'Unclaimed Redemption Stable Scheme': 1, 'Unclaimed Redemption Transitory Scheme': 1, 'Fortnightly Income Distribution Cum Capital Withdrawal Option Option': 1, 'Payout Of Income Distribution Cum Capital Withdrawal Option- Direct': 5, 'Payout Of Income Distribution Cum Capital Withdrawal Option Option': 1, 'Payout Of Income Distribution Cum Capital Withdrawal Option': 33, 'Monthly Payout Of Income Distribution Cum Capital Withdrawal Option': 11, 'Standard Income Distribution Cum Capital Withdrawal Option': 7, 'Standard Reinvestment Of Income Distribution Cum Capital Withdrawal Option': 2, 'Income Distribution Cum Capital Withdrawal Option': 2, 'Payout Of Income Distribution Cum Capital Withdrawal Option - Direct': 1, 'Ayout Of Income Distribution Cum Capital Withdrawal Option': 2, 'Daily Reinvestment Of Income Distribution Cum Capital Withdrawal Option': 6, 'Weekly - Reinvestment & Payout Of Income Distribution Cum Capital Withdrawal Option': 4, 'Standard Income Distribution Cum Capital Withdrawal Optio': 2, '(Monthly Payout Of Income Distribution Cum Capital Withdrawal Option)': 2, 'Monthly - Reinvestment & Payout Of Income Distribution Cum Capital Withdrawal Option': 2, 'Reinvestment/Payout': 13, 'Payout/Reinvestment': 20, 'Reinvestment': 5, 'Unclaimed Redemption Plan - Upto 3 Years': 1, 'Dcw Payout': 1, 'Automatic Capital Appreciation Payout Option': 2, 'Defined Maturity Date Option': 1, 'Automatic Annual Reinvest Option': 2, 'P F Option-Defined Maturity Date Option': 1, 'Monthly Reinvestment Of Income Distribution Cum Capital Withdrawal Option': 5, 'Reinvestment Of Income Distribution Cum Capital Withdrawal Option': 18, 'Weekly Reinvestment Of Income Distribution Cum Capital Withdrawal Option': 2, 'Weekly Payout Of Income Distribution Cum Capital Withdrawal Option': 2, 'Daily Income Distribution Cum Capital Withdrawal': 2, 'Monthly Income Distribution Cum Capital Withdrawal': 4, 'Weekly Income Distribution Cum Capital Withdrawal': 4, 'Quarterly Income Distribution Cum Capital Withdrawal': 2, 'Discontinued Pf Plan Prescribed Date Auto Redemption': 1, 'Monthly Payment Plan': 2, 'Unclaimed Amounts Plan - Redemption Beyond 3 Years': 1, 'Unclaimed Amounts Plan - Redemption Upto 3 Years': 1, 'Unclaimed Redemption Greater Than 3 Years': 1}
+Types:   {'Active': 6209, 'Index': 1286, 'ETF': 360, 'FoF': 441}
+
+Rows with problems:    112   {'nav_missing': 108, 'bad_isin_2': 2, 'bad_isin_1': 2}
+
+Top fund houses: Nippon India Mutual Fund (541), ICICI Prudential Mutual Fund (462), SBI Mutual Fund (423), UTI Mutual Fund (419), Bandhan Mutual Fund (406), Kotak Mahindra Mutual Fund (384), Tata Mutual Fund (357), HDFC Mutual Fund (346), Axis Mutual Fund (337), Aditya Birla Sun Life Mutual Fund (329)
+
+Lines skipped: 0   {}
+
+Time taken: 1.4s

@@ -1,0 +1,371 @@
+# NavLab fund catalog — input for build_holdings_db.py
+#
+# How to use
+# ----------
+# 1. For each fund you want holdings for, set rupeevest_schemecode
+#    (open the fund on rupeevest.com; the number in the URL is the code).
+# 2. Run:  python build_holdings_db.py
+# 3. Copy: cp holdings_db/yaml/*.yaml data/funds/
+#
+# Rupeevest schemecode ≠ AMFI code. They are different ID systems.
+# amfi_code is filled where we could match refined/schemes.csv (Direct Growth).
+# FoFs / gold / silver / overseas debt are excluded — stock estimator does not apply.
+#
+# enabled: false  → skipped by the builder
+
+# ── Already working in the project ──────────────────────────────────────────
+- id: sbi-nifty-next-50-index-fund-direct-growth
+  name: SBI Nifty Next 50 Index Fund Direct Growth
+  rupeevest_schemecode: "45529"          # verified
+  amfi_code: "148945"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Nifty Next 50, Direct, Growth]
+  enabled: true
+
+# ── SBI active / index (from Tickertape Growth list) ────────────────────────
+- id: sbi-large-cap-fund
+  name: SBI Large Cap Fund
+  rupeevest_schemecode: null             # FILL ME
+  amfi_code: "119598"
+  category: [Equity, Large Cap]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Large Cap, Direct, Growth]
+  enabled: true
+
+- id: sbi-contra-fund
+  name: SBI Contra Fund
+  rupeevest_schemecode: null
+  amfi_code: null                        # not found cleanly in schemes.csv snapshot
+  category: [Equity, Contra]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Contra, Direct, Growth]
+  enabled: true
+
+- id: sbi-large-midcap-fund
+  name: SBI Large & Midcap Fund
+  rupeevest_schemecode: null
+  amfi_code: null
+  category: [Equity, Large & Mid Cap]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Large & Mid Cap, Direct, Growth]
+  enabled: true
+
+- id: sbi-midcap-fund
+  name: SBI Midcap Fund
+  rupeevest_schemecode: null
+  amfi_code: "119716"
+  category: [Equity, Mid Cap]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Mid Cap, Direct, Growth]
+  enabled: true
+
+- id: sbi-flexicap-fund
+  name: SBI Flexicap Fund
+  rupeevest_schemecode: null
+  amfi_code: null
+  category: [Equity, Flexi Cap]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Flexi Cap, Direct, Growth]
+  enabled: true
+
+- id: sbi-nifty-index-fund
+  name: SBI Nifty Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "119827"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Nifty 50, Direct, Growth]
+  enabled: true
+
+- id: sbi-consumption-opp-fund
+  name: SBI Consumption Opp Fund
+  rupeevest_schemecode: null
+  amfi_code: "120575"
+  category: [Equity, Sectoral / Thematic]
+  plan: Direct
+  option: Growth
+  fund_type: Active
+  tags: [Consumption, Sectoral, Direct, Growth]
+  enabled: true
+
+- id: sbi-bse-sensex-index-fund
+  name: SBI BSE Sensex Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "151769"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Sensex, Direct, Growth]
+  enabled: true
+
+# ── Defence / thematic index ────────────────────────────────────────────────
+- id: aditya-birla-sl-nifty-india-defence-index-fund
+  name: Aditya Birla SL Nifty India Defence Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "152798"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Defence, Direct, Growth]
+  enabled: true
+
+- id: mirae-asset-bse-india-defence-etf-fof
+  name: Mirae Asset BSE India Defence ETF FOF
+  rupeevest_schemecode: null
+  amfi_code: "154187"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Defence, Direct, Growth]
+  enabled: true
+
+# ── Other index / factor ────────────────────────────────────────────────────
+- id: edelweiss-nifty500-multicap-momentum-quality-50
+  name: Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "152616"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Momentum, Direct, Growth]
+  enabled: true
+
+- id: edelweiss-nifty-alpha-low-volatility-30
+  name: Edelweiss Nifty Alpha Low Volatility 30 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "152616"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Low Volatility, Direct, Growth]
+  enabled: true
+
+- id: edelweiss-bse-internet-economy-index-fund
+  name: Edelweiss BSE Internet Economy Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "153497"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Internet, Direct, Growth]
+  enabled: true
+
+- id: aditya-birla-sl-bse-500-momentum-50
+  name: Aditya Birla SL BSE 500 Momentum 50 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "153736"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Momentum, Direct, Growth]
+  enabled: true
+
+- id: aditya-birla-sl-bse-500-quality-50
+  name: Aditya Birla SL BSE 500 Quality 50 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "153740"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Quality, Direct, Growth]
+  enabled: true
+
+- id: aditya-birla-sl-bse-india-infrastructure
+  name: Aditya Birla SL BSE India Infrastructure Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "153081"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Infrastructure, Direct, Growth]
+  enabled: true
+
+- id: baroda-bnp-nifty-50-index
+  name: Baroda BNP Paribas Nifty 50 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "152329"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Nifty 50, Direct, Growth]
+  enabled: true
+
+- id: baroda-bnp-nifty200-momentum-30
+  name: Baroda BNP Paribas Nifty200 Momentum 30 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "152931"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Momentum, Direct, Growth]
+  enabled: true
+
+- id: baroda-bnp-nifty-midcap-150
+  name: Baroda BNP Paribas NIFTY Midcap 150 Index Fund
+  rupeevest_schemecode: null
+  amfi_code: "153000"
+  category: [Equity, Index]
+  plan: Direct
+  option: Growth
+  fund_type: Index
+  tags: [Index, Mid Cap, Direct, Growth]
+  enabled: true
+
+# ── Mirae equity FoFs (may only list underlying ETF — review after fetch) ───
+- id: mirae-diversified-equity-allocator-passive-fof
+  name: Mirae Asset Diversified Equity Allocator Passive FOF
+  rupeevest_schemecode: null
+  amfi_code: "148574"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Passive, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-midsmallcap400-momentum-quality-100-etf-fof
+  name: Mirae Asset Nifty MidSmallcap400 Momentum Quality 100 ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "152457"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Momentum, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-smallcap-250-momentum-quality-100-etf-fof
+  name: Mirae Asset Nifty Smallcap 250 Momentum Quality 100 ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "152459"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Small Cap, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty200-alpha-30-etf-fof
+  name: Mirae Asset Nifty200 Alpha 30 ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "152718"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Alpha, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-india-manufacturing-etf-fof
+  name: Mirae Asset Nifty India Manufacturing ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "149790"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Manufacturing, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-metal-etf-fof
+  name: Mirae Asset Nifty Metal ETF FOF
+  rupeevest_schemecode: null
+  amfi_code: "154216"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Metal, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-100-esg-sector-leaders-fof
+  name: Mirae Asset Nifty 100 ESG Sector Leaders FoF
+  rupeevest_schemecode: null
+  amfi_code: "148574"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, ESG, Direct, Growth]
+  enabled: true
+
+- id: mirae-bse-midcap-150-momentum-30-etf-fof
+  name: Mirae Asset BSE Midcap 150 Momentum 30 ETF FOF
+  rupeevest_schemecode: null
+  amfi_code: "154474"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Mid Cap, Direct, Growth]
+  enabled: true
+
+- id: mirae-multi-factor-passive-fof
+  name: Mirae Asset Multi Factor Passive FOF
+  rupeevest_schemecode: null
+  amfi_code: "153816"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Multi Factor, Direct, Growth]
+  enabled: true
+
+- id: mirae-nifty-india-new-age-consumption-etf-fof
+  name: Mirae Asset Nifty India New Age Consumption ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "153192"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Consumption, Direct, Growth]
+  enabled: true
+
+- id: mirae-bse-select-ipo-etf-fof
+  name: Mirae Asset BSE Select IPO ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "153385"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, IPO, Direct, Growth]
+  enabled: true
+
+- id: mirae-bse-200-equal-weight-etf-fof
+  name: Mirae Asset BSE 200 Equal Weight ETF FoF
+  rupeevest_schemecode: null
+  amfi_code: "153380"
+  category: [Equity, FoF]
+  plan: Direct
+  option: Growth
+  fund_type: FoF
+  tags: [FoF, Equal Weight, Direct, Growth]
+  enabled: true

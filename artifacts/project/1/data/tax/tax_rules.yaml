@@ -1,0 +1,6 @@
+# Versioned. Add a new entry with a new effective_from when rules change. VERIFY before relying.
+- id: equity_oriented
+  effective_from: "2024-07-23"
+  description: Rates as shown on Groww for this fund
+  short_term: {holding_days_lt: 365, rate_pct: 20}
+  long_term: {rate_pct: 12.5, exempt_gain_per_fy: 125000}

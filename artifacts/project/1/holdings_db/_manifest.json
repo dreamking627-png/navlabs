@@ -1,0 +1,15 @@
+[
+  {
+    "id": "sbi-nifty-next-50-index-fund-direct-growth",
+    "name": "SBI Nifty Next 50 Index Fund Direct Growth",
+    "status": "ok",
+    "amfi_code": "148945",
+    "rupeevest_schemecode": "45529",
+    "holdings_count": 50,
+    "missing_symbols": 0,
+    "as_of": "2026-09-30",
+    "yaml": "yaml/sbi-nifty-next-50-index-fund-direct-growth.yaml",
+    "error": null,
+    "amfi_match_score": null
+  }
+]

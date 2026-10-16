@@ -1,0 +1,38 @@
+id: groww-nifty-india-defence-etf-fof-dg
+name: Groww Nifty India Defence ETF FoF Direct Growth
+amfi_code: "152925"          # AMFI 6-digit scheme code (from refined/schemes.csv). ISIN is INF666M01IQ3
+category: [Equity, Sectoral / Thematic]
+fund_type: FoF
+plan: Direct
+option: Growth
+tags: [Defence, FoF, Direct, Growth]
+underlying_etf: {name: Groww Nifty India Defence ETF, symbol: null}   # FILL IN NSE symbol to enable ETF cross-check
+attributes: {isin: INF666M01IQ3}   # free-form extras
+previous_nav: null           # {date: "YYYY-MM-DD", nav: 0.0000} or set later via POST /api/funds/{id}/nav
+tax_rule: equity_oriented
+costs:
+  - {key: expense_ratio_pct, value: 0.14, note: "Inclusive of GST", effective_from: "2026-10-11"}
+  - {key: exit_load, value: "1% if redeemed within 30 days", effective_from: "2026-10-11"}
+  - {key: stamp_duty_pct, value: 0.005, note: "On investment (from 1 Jul 2020)", effective_from: "2026-10-11"}
+holdings:
+  as_of: "2026-10-11"        # REPLACE with the real disclosure date
+  items:
+    - {name: Hindustan Aeronautics, symbol: HAL, weight: 21.38}
+    - {name: Bharat Electronics, symbol: BEL, weight: 19.50}
+    - {name: Bharat Forge, symbol: BHARATFORG, weight: 13.91}
+    - {name: Solar Industries India, symbol: SOLARINDS, weight: 12.14}
+    - {name: Mazagon Dock Shipbuilders, symbol: MAZDOCK, weight: 4.67}
+    - {name: MTAR Technologies, symbol: MTARTECH, weight: 3.75}
+    - {name: Astra Microwave Products, symbol: ASTRAMICRO, weight: 3.50}
+    - {name: Data Patterns (India), symbol: DATAPATTNS, weight: 3.38}
+    - {name: Cochin Shipyard, symbol: COCHINSHIP, weight: 3.17}
+    - {name: Bharat Dynamics, symbol: BDL, weight: 2.91}
+    - {name: Zen Technologies, symbol: ZENTEC, weight: 2.03}
+    - {name: Garden Reach Shipbuilders & Engineers, symbol: GRSE, weight: 1.86}
+    - {name: BEML, symbol: BEML, weight: 1.84}
+    - {name: Apollo Micro Systems, symbol: APOLLO, weight: 1.55}
+    - {name: Paras Defence and Space Technologies, symbol: PARAS, weight: 1.26}
+    - {name: Dynamatic Technologies, symbol: DYNAMATECH, weight: 1.17}
+    - {name: Axiscades Technologies, symbol: AXISCADES, weight: 0.74}
+    - {name: Aequs, symbol: AEQUS, weight: 0.70}
+    - {name: Mishra Dhatu Nigam, symbol: MIDHANI, weight: 0.50}

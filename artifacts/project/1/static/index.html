@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NavLab</title>
+    <style>
+    :root{--bg:#0a0c0f;--panel:#12161b;--line:#222a33;--tx:#e8edf2;--mut:#8b97a4;--up:#2fbf71;--dn:#ef5350;--ac:#5b8cff}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
+    main{max-width:720px;margin:0 auto;padding:16px 16px 48px}a{color:inherit;text-decoration:none}
+    h1{font-size:22px;margin:8px 0 2px}h2{font-size:16px;margin:28px 0 8px;color:var(--mut);font-weight:600}
+    .mut{color:var(--mut);font-size:13px}.up{color:var(--up)}.dn{color:var(--dn)}
+    .cat{margin:18px 0 6px;font-weight:600}.sub{margin-left:12px}
+    .fund{display:block;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:8px 0}
+    .tag{display:inline-block;font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:20px;padding:1px 9px;margin:6px 6px 0 0}
+    button{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:13px 18px;font:600 15px inherit;width:100%;cursor:pointer}
+    button:disabled{opacity:.6}button:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:12px}
+    .big{font-size:30px;font-weight:700}.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+    .row:last-child{border:0}.r{text-align:right;white-space:nowrap}.warn{color:#e8b04a;font-size:13px;margin-top:8px}.back{color:var(--mut)}
+    input.q,select{width:100%;background:#0d1115;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:10px;font:14px inherit;margin:6px 0}
+    .flt{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}.lk{color:var(--ac);font-size:13px}button.sm{margin-top:12px}</style></head><body><main id="app"></main>
+    <script>
+    const $=document.getElementById('app'),api=(p,o)=>fetch('/api'+p,o).then(async r=>{if(!r.ok)throw new Error((await r.json()).detail||r.status);return r.json()});
+    const f=(n,d=2)=>n==null?'-':Number(n).toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+    const cl=n=>n>0?'up':n<0?'dn':'',sg=n=>n>0?'+':'',esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    async function home(){const cats=await api('/categories');
+     const node=(c,d)=>`<div class="${d?'sub':''}"><div class="cat">${esc(c.name)}</div>${c.funds.map(x=>`<a class="fund" href="#/fund/${x.id}"><b>${esc(x.name)}</b><div>${x.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></a>`).join('')}${c.children.map(k=>node(k,1)).join('')}</div>`;
+     const fl=await api('/schemes/filters');
+     $.innerHTML=`<h1>NavLab</h1><a class="fund" href="#/schemes"><b>Browse all mutual funds</b><div class="mut">${fl.total?fl.total.toLocaleString('en-IN')+' schemes from the AMFI file':'No AMFI file loaded yet (put it in data/amfi)'}</div></a><div class="mut">Funds with live estimates, by category</div>${cats.length?cats.map(c=>node(c,0)).join(''):'<p class="mut">No funds yet. Add a file in data/funds and restart.</p>'}`}
+    async function fundPage(id){const [d,h]=await Promise.all([api('/funds/'+id),api('/funds/'+id+'/holdings')]);let est=null;
+     const cost=k=>({expense_ratio_pct:'Expense ratio',exit_load:'Exit load',stamp_duty_pct:'Stamp duty'}[k]||k);
+     const tax=d.tax?`<div class="row"><span>Held under 1 year</span><span class="r">${d.tax.short_term.rate_pct}% on gains</span></div><div class="row"><span>Held over 1 year</span><span class="r">${d.tax.long_term.rate_pct}% above ₹${f(d.tax.long_term.exempt_gain_per_fy,0)} gains per year</span></div>`:'';
+     function draw(){const m={};(est?est.breakdown:[]).forEach(b=>m[b.symbol]=b);
+      $.innerHTML=`<a class="back" href="#/">‹ Funds</a><h1>${esc(d.name)}</h1><div>${[d.category,...d.tags].map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="mut" style="margin-top:8px">Last official NAV: ${d.last_nav?'₹'+f(d.last_nav.nav,4)+' ('+d.last_nav.date+')':'not set'}</div>
+      <div style="margin-top:14px"><button id="go">Get estimated NAV</button></div><div id="res"></div>
+      <h2>Costs and tax</h2><div class="card">${d.costs.map(c=>`<div class="row"><span>${cost(c.key)}${c.note?`<div class="mut">${esc(c.note)}</div>`:''}</span><span class="r">${esc(c.value)}${c.key.endsWith('_pct')?'%':''}</span></div>`).join('')}${tax}</div>
+      <h2>Holdings${h.as_of?' (as of '+h.as_of+')':''}</h2><div class="card">${h.holdings.map(x=>{const b=m[x.symbol];return `<div class="row"><span>${esc(x.name)}<div class="mut">${f(x.weight)}% · ${x.symbol}</div></span><span class="r">${b&&b.price?'₹'+f(b.price)+`<div class="${cl(+b.change_pct)}">${sg(+b.change)}${f(b.change)} (${sg(+b.change_pct)}${f(b.change_pct)}%)</div>`:'<span class="mut">-</span>'}</span></div>`}).join('')}</div>`;
+      if(est)res(est);document.getElementById('go').onclick=run}
+     function res(e){const ok=e.status==='OK',p=+e.estimated_change_pct;document.getElementById('res').innerHTML=`<div class="card">${ok?`<div class="mut">Estimated NAV · ${new Date(e.ts).toLocaleString()}</div><div class="big">${e.estimated_nav?'₹'+f(e.estimated_nav,4):'<span class="mut">NAV not set</span>'}</div><div class="${cl(p)}">${sg(p)}${f(p,4)}% today</div>`:`<div class="big dn">${e.status}</div>`}
+      <div class="mut" style="margin-top:8px">Confidence: ${e.confidence} · Mapped weight ${f(e.mapped_weight)}% · ${e.market_open?'Market open':'Market closed (last close prices)'}</div>
+      ${e.etf_check?`<div class="mut">ETF check: ETF ${sg(+e.etf_check.etf_change_pct)}${e.etf_check.etf_change_pct}% (gap ${e.etf_check.gap_pct}%)</div>`:''}
+      ${e.confidence==='DEMO'?'<div class="warn">Demo data - not real prices.</div>':''}${e.warnings.concat(e.source_notes).map(w=>`<div class="warn">${esc(w)}</div>`).join('')}<div class="mut" style="margin-top:6px">Audit ID ${e.estimate_id}</div></div>`}
+     async function run(){const b=document.getElementById('go');b.disabled=true;b.textContent='Fetching prices...';try{est=await api('/funds/'+id+'/estimate',{method:'POST'});draw()}catch(x){b.disabled=false;b.textContent='Get estimated NAV';document.getElementById('res').innerHTML=`<div class="card dn">${esc(x.message)}</div>`}}
+     draw()}
+    async function schemesPage(){const fl=await api('/schemes/filters');let st={q:'',amc:'',category:'',plan:'',option:'',type:''},off=0,tm;
+     const opt=(a,l)=>`<option value="">${l}</option>`+a.map(x=>`<option>${esc(x)}</option>`).join('');
+     $.innerHTML=`<a class="back" href="#/">‹ Funds</a><h1>All mutual funds</h1><div class="mut" id="cnt"></div><input class="q" id="q" placeholder="Search by name...">
+     <div class="flt"><select id="amc">${opt(fl.amcs,'All fund houses')}</select><select id="category">${opt(fl.categories,'All categories')}</select><select id="plan">${opt(['Direct','Regular'],'Direct + Regular')}</select><select id="option">${opt(['Growth','IDCW','Bonus'],'All options')}</select><select id="type">${opt(['Index','ETF','FoF','Active'],'All types')}</select></div>
+     <div class="card" id="list"></div><button class="sm" id="more" hidden>Load more</button>`;
+     async function load(reset){if(reset){off=0;document.getElementById('list').innerHTML=''}const p=new URLSearchParams({...st,limit:50,offset:off});const r=await api('/schemes?'+p);
+      document.getElementById('cnt').textContent=r.total.toLocaleString('en-IN')+' schemes';
+      document.getElementById('list').insertAdjacentHTML('beforeend',r.items.map(x=>`<div class="row"><span>${esc(x.name)}<div class="mut">${esc(x.amc||'')} · ${esc([x.category,x.sub_category].filter(Boolean).join(' / ')||x.fund_type)} · ${x.plan} / ${x.option}</div>${x.tracked?`<a class="lk" href="#/fund/${x.tracked}">Live estimate ›</a>`:''}</span><span class="r">${x.nav?'₹'+f(x.nav,4):'-'}<div class="mut">${x.nav_date||''}</div></span></div>`).join('')||(reset?'<div class="mut">No schemes match.</div>':''));
+      off+=r.items.length;document.getElementById('more').hidden=off>=r.total}
+     const q=document.getElementById('q');q.oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{st.q=q.value;load(true)},300)};
+     ['amc','category','plan','option','type'].forEach(k=>document.getElementById(k).onchange=e=>{st[k]=e.target.value;load(true)});
+     document.getElementById('more').onclick=()=>load(false);load(true)}
+    async function route(){if(location.hash==='#/schemes'){try{await schemesPage()}catch(e){$.innerHTML=`<p class="dn">${esc(e.message)}</p><a href="#/">Back</a>`}return}const m=location.hash.match(/^#\/fund\/(.+)$/);try{await(m?fundPage(m[1]):home())}catch(e){$.innerHTML=`<p class="dn">${esc(e.message)}</p><a href="#/">Back</a>`}}
+    addEventListener('hashchange',route);route();
+    </script></body></html>

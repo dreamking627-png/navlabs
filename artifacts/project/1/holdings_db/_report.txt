@@ -1,0 +1,14 @@
+Holdings DB build  2026-10-16T03:00:21.935726+00:00
+Catalog: /home/workdir/artifacts/project/1/catalog/funds_catalog.yaml
+OK: 1   need_rupeevest_code: 0   errors: 0   other: 0
+
+=== OK ===
+  sbi-nifty-next-50-index-fund-direct-growth  amfi=148945    n= 50  missing=0  as_of=2026-09-30
+
+Next steps:
+  1. Fill rupeevest_schemecode for funds listed under NEED
+     (open the fund on rupeevest.com — the number in the URL is the schemecode)
+  2. Re-run:  python build_holdings_db.py
+  3. Copy:    cp holdings_db/yaml/*.yaml data/funds/
+  4. Restart the NavLab app so importer loads the new YAMLs
+  5. Set previous NAV (POST /api/funds/{id}/nav) or wire daily AMFI file
